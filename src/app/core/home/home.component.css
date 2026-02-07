@@ -1,0 +1,57 @@
+.home-container {
+  padding: 40px;
+  text-align: center;
+}
+
+.hero {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.main-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.main-btn:hover {
+  background-color: #0056b3;
+}
+
+.info-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}

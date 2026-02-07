@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';   // <-- needed for *ngFor, *ngIf, date pipe
-import { FormsModule } from '@angular/forms';
-import { Suggestion } from '../../models/suggestion';
+import { Suggestion } from '../../../models/suggestion';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-list-suggestion',
-  standalone: true,          
-  imports: [CommonModule, FormsModule],  // <-- add CommonModule here
   templateUrl: './list-suggestion.component.html',
   styleUrls: ['./list-suggestion.component.css']
 })

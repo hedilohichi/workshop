@@ -49,6 +49,9 @@
           <button class="btn favoris-btn" (click)="AjouterFavoris(s.id)">
              🤍Ajouter aux favoris
           </button>
+          <button class="btn details-btn" [routerLink]="['/suggestions', s.id]">
+             📄 Voir les détails
+          </button>
         </div>
 
       </div>
