@@ -1,59 +1,64 @@
-  <div id="suggestion-list">
+<div id="suggestion-list">
+  <div class="header-section">
     <h2>Liste des suggestions</h2>
+    <button class="btn btn-add" [routerLink]="['new']">
+      ➕ Ajouter suggestion
+    </button>
+  </div>
 
-    <input
-      type="text"
-      id="search"
-      placeholder="Rechercher une suggestion"
-      [(ngModel)]="searchText"
-    />
+  <input
+    type="text"
+    id="search"
+    placeholder="Rechercher une suggestion"
+    [(ngModel)]="searchText"
+  />
 
-    <div class="suggestion-card" *ngFor="let s of suggestions">
-      <div *ngIf="
-        s.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        s.category.toLowerCase().includes(searchText.toLowerCase())
-      ">
+  <div class="suggestion-card" *ngFor="let s of suggestions">
+    <div *ngIf="
+      s.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      s.category.toLowerCase().includes(searchText.toLowerCase())
+    ">
 
-        <!-- Title -->
-        <h3 class="suggestion-title">{{ s.title }}</h3>
+      <!-- Title -->
+      <h3 class="suggestion-title">{{ s.title }}</h3>
 
-        <!-- Category + Date inline -->
-        <p class="meta">
-          <span class="category">{{ s.category }}</span>
-          <span class="date">{{ s.date | date:'dd MMM yyyy' }}</span>
-        </p>
+      <!-- Category + Date inline -->
+      <p class="meta">
+        <span class="category">{{ s.category }}</span>
+        <span class="date">{{ s.date | date:'dd MMM yyyy' }}</span>
+      </p>
 
-        <!-- Description -->
-        <p class="suggestion-description">
-          {{ s.description }}
-        </p>
+      <!-- Description -->
+      <p class="suggestion-description">
+        {{ s.description }}
+      </p>
 
-        <!-- Status badge -->
-        <span
-          class="suggestion-status"
-          [ngClass]="{
-            'badge-success': s.status === 'acceptee',
-            'badge-danger': s.status === 'refusee',
-            'badge-warning': s.status === 'en_attente'
-          }"
-        >
-          {{ s.status === 'en_attente' ? 'EN ATTENTE' : s.status | uppercase }}
-        </span>
+      <!-- Status badge -->
+      <span
+        class="suggestion-status"
+        [ngClass]="{
+          'badge-success': s.status === 'acceptee',
+          'badge-danger': s.status === 'refusee',
+          'badge-warning': s.status === 'en_attente'
+        }"
+      >
+        {{ s.status === 'en_attente' ? 'EN ATTENTE' : s.status | uppercase }}
+      </span>
 
-        <!-- Actions -->
-        <div class="action-buttons" *ngIf="s.status !== 'refusee'">
-          <button class="btn like-btn" (click)="like(s)">
-            👍 Like {{ s.nbLikes }}
-          </button>
+      <!-- Actions -->
+      <div class="action-buttons" *ngIf="s.status !== 'refusee'">
+        <button class="btn like-btn" (click)="like(s)">
+          👍 Like {{ s.nbLikes }}
+        </button>
 
-          <button class="btn favoris-btn" (click)="AjouterFavoris(s.id)">
-             🤍Ajouter aux favoris
-          </button>
-          <button class="btn details-btn" [routerLink]="['/suggestions', s.id]">
-             📄 Voir les détails
-          </button>
-        </div>
-
+        <button class="btn favoris-btn" (click)="AjouterFavoris(s.id)">
+          🤍Ajouter aux favoris
+        </button>
+        <button class="btn details-btn" [routerLink]="['/suggestions', s.id]">
+          📄 Voir les détails
+        </button>
       </div>
+
     </div>
   </div>
+</div>
