@@ -1,0 +1,18 @@
+<div class="container">
+  <h3>{{ id ? 'Edit' : 'Add' }} Suggestion</h3>
+  <form [formGroup]="suggestionForm" (ngSubmit)="onSave()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input formControlName="title" id="title" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea formControlName="description" id="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input formControlName="category" id="category" class="form-control" />
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="suggestionForm.invalid">Save</button>
+  </form>
+</div>

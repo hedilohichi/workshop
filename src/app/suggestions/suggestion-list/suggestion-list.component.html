@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Suggestions</h2>
+  <button class="btn btn-primary mb-2" (click)="addNew()">Add suggestion</button>
+  <table class="table table-striped" *ngIf="suggestions.length">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Likes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of suggestions">
+        <td>{{s.id}}</td>
+        <td>{{s.title}}</td>
+        <td>{{s.category}}</td>
+        <td>{{s.nbLikes || 0}}</td>
+        <td>
+          <button class="btn btn-sm btn-info mr-1" (click)="viewDetails(s)">Details</button>
+          <button class="btn btn-sm btn-success mr-1" (click)="like(s)">Like</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteSuggestion(s)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="!suggestions.length">No suggestions available.</div>
+</div>

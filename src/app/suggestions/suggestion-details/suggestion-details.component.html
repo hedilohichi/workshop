@@ -1,0 +1,12 @@
+<div class="container" *ngIf="suggestion">
+  <h3>Suggestion details</h3>
+  <p><strong>Title:</strong> {{suggestion!.title}}</p>
+  <p><strong>Description:</strong> {{suggestion!.description}}</p>
+  <p><strong>Category:</strong> {{suggestion!.category}}</p>
+  <p><strong>Status:</strong> {{suggestion!.status}}</p>
+  <p><strong>Date:</strong> {{suggestion!.date}}</p>
+  <p><strong>Likes:</strong> {{suggestion!.nbLikes}}</p>
+
+  <button class="btn btn-primary" (click)="edit()">Update</button>
+  <button class="btn btn-danger" (click)="delete()">Delete</button>
+</div>

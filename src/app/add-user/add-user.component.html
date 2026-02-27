@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            formControlName="username">
+          <span *ngIf="username?.errors?.['minlength']">Username must be at least 3 caracters</span>
+          <span *ngIf="username?.errors?.['required']">Please enter a valid username</span>
+          <!--          <span *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">Please enter a valid username!!</span>-->
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            [formControlName]="'email'"
+          >
+          <span *ngIf="email?.errors?.['email']">Email must be valid</span>
+          <span *ngIf="email?.errors?.['required']">Pleas enter an email</span>
+          <!--          <span *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">Please enter a valid email!!</span>-->
+        </div>
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input
+              type="radio"
+              [value]="gender"
+              formControlName="gender">{{ gender }}
+          </label>
+        </div>
+        <div formGroupName="userData">
+          <div class="form-group">
+            <label for="facebook">Facebook</label>
+            <input
+              type="text"
+              id="facebook"
+              class="form-control"
+              formControlName="fb">
+            <span *ngIf="signupForm.get('userData.fb')?.invalid && signupForm.get('userData.fb')?.touched">Please enter a valid facebook link!!</span>
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input
+              type="text"
+              id="age"
+              class="form-control"
+              formControlName="age">
+            <span *ngIf="signupForm.get('userData.age')?.invalid && signupForm.get('userData.age')?.touched">Please enter a valid age!!</span>
+          </div>
+        </div>
+        <button [disabled]="signupForm.invalid" class="btn btn-primary" type="submit" (click)="onSubmit()">Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

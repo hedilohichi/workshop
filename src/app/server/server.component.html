@@ -1,0 +1,29 @@
+<input type="text" [(ngModel)]="serverName">
+<!--<input type="text" [formControl]="status">-->
+<!--<span *ngIf="status?.errors?.['required']">Please enter a status</span>-->
+<button class="btn btn-primary" [disabled]="allowServerCreation" (click)="serverCreationStatus()">Add Server</button>
+<!--<p>{{serverName}}</p>-->
+<!--<p>{{serverCreation}}</p>-->
+<!--<p>Server ID is {{ serverID }}, Server Status {{ serverStatus}}</p>-->
+
+<!--<p *ngIf="serverCreated; else noserver;">Server was created, server name is {{serverName}}</p>-->
+<!--<ng-template #noserver>-->
+<!--  No server was created !!-->
+<!--</ng-template>-->
+
+<!--<div *ngFor="let server of servers">-->
+<!--  {{server}}-->
+<!--</div>-->
+
+<div [ngSwitch]="serverCreation">
+  <div *ngSwitchCase="'not created'">
+    No server was created!!
+  </div>
+  <div *ngSwitchCase="'created'">
+    Server was created, server name is {{ serverName | uppercase }}
+  </div>
+  <div *ngSwitchDefault>
+    Unknown status
+  </div>
+</div>
+
